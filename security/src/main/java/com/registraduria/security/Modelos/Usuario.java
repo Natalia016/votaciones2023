@@ -11,6 +11,8 @@ public class Usuario {
     private String correo;
     private String contrasena;
 
+    private Rol rol;
+
     public Usuario(String seudonimo, String correo, String contrasena) {
         this.seudonimo = seudonimo;
         this.correo = correo;
@@ -44,5 +46,13 @@ public class Usuario {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 }
