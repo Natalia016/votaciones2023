@@ -1,6 +1,7 @@
 package com.registraduria.security.Controladores;
-
+import com.registraduria.security.Modelos.Rol;
 import com.registraduria.security.Modelos.Usuario;
+import com.registraduria.security.Repositorios.RepositorioRol;
 import com.registraduria.security.Repositorios.RepositorioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,9 @@ public class ControladorUsuario {
     private RepositorioUsuario miRepositorioUsuario;
 
     //Endpoint para obtener una lista con todos los usuarios
+    @Autowired
+    private RepositorioRol miRepositorioRol;
+
 
     @GetMapping("")
     public List<Usuario> index() {
@@ -39,38 +43,34 @@ public class ControladorUsuario {
         return usuarioActual;
     }
     //Actualizar
-    @PutMapping("{id}")
-    public Usuario update(@PathVariable String id,@RequestBody Usuario infoUsuario){
-        Usuario usuarioActual = this.miRepositorioUsuario.findById(id).orElse(null);
-        if (usuarioActual!=null){
-            usuarioActual.setSeudonimo(infoUsuario.getSeudonimo());
-            usuarioActual.setCorreo(infoUsuario.getCorreo());
-            usuarioActual.setContrasena(convertirSHA256(infoUsuario.getContrasena()));
+    @PutMapping("{id}/rol/{id_rol}")
+    public Usuario asignarRolAUsuario(@PathVariable String id,@PathVariable String id_rol){
+        Usuario usuarioActual=this.miRepositorioUsuario
+                .findById(id)
+                .orElse(null);
+        Rol rolActual=this.miRepositorioRol
+                .findById(id_rol)
+                .orElse(null);
+        if (usuarioActual!=null && rolActual!=null){
+            usuarioActual.setRol(rolActual);
             return this.miRepositorioUsuario.save(usuarioActual);
-        }else {
+        }else{
             return null;
         }
     }
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("{id}")
-    public void delete(@PathVariable String id){
-        Usuario usuarioActual = this.miRepositorioUsuario.findById(id).orElse(null);
-        if (usuarioActual != null) {
-            this.miRepositorioUsuario.delete(usuarioActual);
-        }
-    }
-    public String convertirSHA256(String password){
-        MessageDigest md=null;
+    public String convertirSHA256(String password) {
+        MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("SHA-256");
-        }catch (NoSuchAlgorithmException e){
+        }
+        catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;
         }
-        byte[] hash = md.digest(password.getBytes());
+        byte[] hash = md.digest(password.getBytes()); //Array de bytes
         StringBuffer sb = new StringBuffer();
-        for (byte b:hash) {
-            sb.append(String.format("%02x",b));
+        for(byte b : hash) {
+            sb.append(String.format("%02x", b));//convertir byte a hexadecimal
         }
         return sb.toString();
     }
