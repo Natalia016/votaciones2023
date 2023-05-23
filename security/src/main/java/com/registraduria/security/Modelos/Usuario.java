@@ -1,6 +1,7 @@
 package com.registraduria.security.Modelos;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document()
@@ -11,8 +12,17 @@ public class Usuario {
     private String correo;
     private String contrasena;
 
+<<<<<<< HEAD
+
+
+    @DBRef
     private Rol rol;
 
+
+=======
+    private Rol rol;
+
+>>>>>>> c9c883f1781ea873cb03485cfc1bd2b5797b5d41
     public Usuario(String seudonimo, String correo, String contrasena) {
         this.seudonimo = seudonimo;
         this.correo = correo;
@@ -48,6 +58,10 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
+<<<<<<< HEAD
+}
+
+=======
     public Rol getRol() {
         return rol;
     }
@@ -56,3 +70,4 @@ public class Usuario {
         this.rol = rol;
     }
 }
+>>>>>>> c9c883f1781ea873cb03485cfc1bd2b5797b5d41
