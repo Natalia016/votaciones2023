@@ -77,7 +77,8 @@ public class ControladorUsuario {
             sb.append(String.format("%02x", b));//convertir byte a hexadecimal
         }
         return sb.toString();
-    } 
+    }
+
     @PostMapping("/validar")
     public Usuario validate(@RequestBody Usuario infoUsuario,
                             final HttpServletResponse response) throws
@@ -93,5 +94,5 @@ public class ControladorUsuario {
             return null;
         }
     }
-   
+}
 
