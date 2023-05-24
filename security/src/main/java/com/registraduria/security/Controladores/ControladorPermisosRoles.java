@@ -94,4 +94,19 @@ public class ControladorPermisosRoles {
             this.miRepositorioPermisoRoles.delete(permisosRolesActual);
         }
     }
+    @GetMapping("validar-permiso/rol/{id_rol}")
+    public PermisosRoles getPermiso(@PathVariable String id_rol,
+                                    @RequestBody Permisos infoPermiso){
+        Permisos elPermiso=this.miRepositorioPermiso
+                .getPermiso(infoPermiso.getUrl(),
+                        infoPermiso.getMetodo());
+        Rol elRol=this.miRepositorioRol.findById(id_rol).get();
+        if (elPermiso!=null && elRol!=null){
+            return
+                    this.miRepositorioPermisoRoles.getPermisoRol(elRol.get_id(),
+                            elPermiso.get_id());
+        }else{
+            return null;
+        }
+    }
 }
