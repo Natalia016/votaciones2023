@@ -45,38 +45,39 @@ public class ControladorUsuario {
         Usuario usuarioActual = this.miRepositorioUsuario.findById(id).orElse(null);
         return usuarioActual;
     }
+
     //Actualizar
     @PutMapping("{id}/rol/{id_rol}")
-    public Usuario asignarRolAUsuario(@PathVariable String id,@PathVariable String id_rol){
-        Usuario usuarioActual=this.miRepositorioUsuario
+    public Usuario asignarRolAUsuario(@PathVariable String id, @PathVariable String id_rol) {
+        Usuario usuarioActual = this.miRepositorioUsuario
                 .findById(id)
                 .orElse(null);
-        Rol rolActual=this.miRepositorioRol
+        Rol rolActual = this.miRepositorioRol
                 .findById(id_rol)
                 .orElse(null);
-        if (usuarioActual!=null && rolActual!=null){
+        if (usuarioActual != null && rolActual != null) {
             usuarioActual.setRol(rolActual);
             return this.miRepositorioUsuario.save(usuarioActual);
-        }else{
+        } else {
             return null;
         }
     }
+
     public String convertirSHA256(String password) {
         MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("SHA-256");
-        }
-        catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;
         }
         byte[] hash = md.digest(password.getBytes()); //Array de bytes
         StringBuffer sb = new StringBuffer();
-        for(byte b : hash) {
+        for (byte b : hash) {
             sb.append(String.format("%02x", b));//convertir byte a hexadecimal
         }
         return sb.toString();
-    }
+    } 
     @PostMapping("/validar")
     public Usuario validate(@RequestBody Usuario infoUsuario,
                             final HttpServletResponse response) throws
@@ -92,4 +93,5 @@ public class ControladorUsuario {
             return null;
         }
     }
-}
+   
+
