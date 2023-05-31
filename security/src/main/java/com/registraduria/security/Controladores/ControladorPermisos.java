@@ -1,6 +1,6 @@
 package com.registraduria.security.Controladores;
 
-import com.registraduria.security.Modelos.Permisos;
+import com.registraduria.security.Modelos.Permiso;
 import com.registraduria.security.Repositorios.RepositorioPermiso;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,27 +18,27 @@ public class ControladorPermisos {
     private RepositorioPermiso miRepositorioPermiso;
 
     @GetMapping("")//enpoint para obtener la lista de todos los permisos
-    public List<Permisos> index() {
+    public List<Permiso> index() {
         return this.miRepositorioPermiso.findAll();
     }
 
     //CREAR PERMISO
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")//permite definir que allí está el método que se debe activar cuando se realice una petición a la ruta
-    public Permisos create(@RequestBody Permisos infoPermisos) {
+    public Permiso create(@RequestBody Permiso infoPermisos) {
         return this.miRepositorioPermiso.save(infoPermisos);
 
     }
 
     @GetMapping("{id}")//devuelve un permisos por id especificado.
-    public Permisos show(@PathVariable String id) {
-        Permisos permisoActual = this.miRepositorioPermiso.findById(id).orElse(null);
+    public Permiso show(@PathVariable String id) {
+        Permiso permisoActual = this.miRepositorioPermiso.findById(id).orElse(null);
         return permisoActual;
     }
 
     @PutMapping("{id}")//actualiza el permiso por id especificado
-    public Permisos update(@PathVariable String id, @RequestBody Permisos infoPermiso) {
-        Permisos permisoActual = this.miRepositorioPermiso.findById(id).orElse(null);
+    public Permiso update(@PathVariable String id, @RequestBody Permiso infoPermiso) {
+        Permiso permisoActual = this.miRepositorioPermiso.findById(id).orElse(null);
         if (permisoActual != null) {
             permisoActual.setMetodo(infoPermiso.getMetodo());
             permisoActual.setUrl(infoPermiso.getUrl());
@@ -52,7 +52,7 @@ public class ControladorPermisos {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("{id}")//elimina el permiso por id especificado
     public void delete(@PathVariable String id) {
-        Permisos permisoActual = this.miRepositorioPermiso.findById(id).orElse(null);
+        Permiso permisoActual = this.miRepositorioPermiso.findById(id).orElse(null);
         if (permisoActual != null) {
             this.miRepositorioPermiso.delete(permisoActual);
         }
