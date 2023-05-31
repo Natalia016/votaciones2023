@@ -6,14 +6,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data     // permite gestionar los datos
 @Document // esta clase se va almacenar en la bd de mongo
 
-public class Permisos {
+public class Permiso {
     @Id
     private String _id;
     private String url;
     private String metodo;
 
     //constructor
-    public Permisos(String url, String metodo) {
+    public Permiso(String url, String metodo) {
         this.url = url;
         this.metodo = metodo;
     }

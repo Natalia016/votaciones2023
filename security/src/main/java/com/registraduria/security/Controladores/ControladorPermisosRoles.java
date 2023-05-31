@@ -1,6 +1,6 @@
 package com.registraduria.security.Controladores;
 
-import com.registraduria.security.Modelos.Permisos;
+import com.registraduria.security.Modelos.Permiso;
 import com.registraduria.security.Modelos.PermisosRoles;
 import com.registraduria.security.Modelos.Rol;
 import com.registraduria.security.Repositorios.RepositorioPermiso;
@@ -41,10 +41,9 @@ public class ControladorPermisosRoles {
     String id_permiso) {
         PermisosRoles nuevo = new PermisosRoles();
         Rol elRol = this.miRepositorioRol.findById(id_rol).get();
-        Permisos
-                elPermiso = this.miRepositorioPermiso.findById(id_permiso).get();
+        Permiso elPermiso = this.miRepositorioPermiso.findById(id_permiso).get();
         if (elRol != null && elPermiso != null) {
-            nuevo.setPermisos(elPermiso);
+            nuevo.setPermiso(elPermiso);
             nuevo.setRol(elRol);
             return this.miRepositorioPermisoRoles.save(nuevo);
         } else {
@@ -73,10 +72,9 @@ public class ControladorPermisosRoles {
                 .orElse(null);
 
         Rol elRol=this.miRepositorioRol.findById(id_rol).get();
-        Permisos
-                elPermiso=this.miRepositorioPermiso.findById(id_permiso).get();
+        Permiso elPermiso=this.miRepositorioPermiso.findById(id_permiso).get();
         if(permisosRolesActual!=null && elPermiso!=null && elRol!=null){
-            permisosRolesActual.setPermisos(elPermiso);
+            permisosRolesActual.setPermiso(elPermiso);
             permisosRolesActual.setRol(elRol);
             return
                     this.miRepositorioPermisoRoles.save(permisosRolesActual);
@@ -95,8 +93,8 @@ public class ControladorPermisosRoles {
         }
     }
     @GetMapping("validar-permiso/rol/{id_rol}")
-    public PermisosRoles getPermiso(@PathVariable String id_rol, @RequestBody Permisos infoPermiso){
-        Permisos elPermiso=this.miRepositorioPermiso.getPermiso(infoPermiso.getUrl(), infoPermiso.getMetodo());
+    public PermisosRoles getPermiso(@PathVariable String id_rol, @RequestBody Permiso infoPermiso){
+        Permiso elPermiso=this.miRepositorioPermiso.getPermiso(infoPermiso.getUrl(), infoPermiso.getMetodo());
         Rol elRol=this.miRepositorioRol.findById(id_rol).get();
         if (elPermiso!=null && elRol!=null){
             return
