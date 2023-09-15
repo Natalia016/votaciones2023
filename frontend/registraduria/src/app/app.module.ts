@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { DescripcionComponent } from './descripcion/descripcion.component';
+import { MisionComponent } from './mision/mision.component';
 
 
 
@@ -18,7 +19,8 @@ import { DescripcionComponent } from './descripcion/descripcion.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    DescripcionComponent
+    DescripcionComponent,
+    MisionComponent
   ],
   imports: [
     BrowserModule,
