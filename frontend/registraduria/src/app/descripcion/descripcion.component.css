@@ -1,0 +1,28 @@
+
+.contenedor {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #c7cacc; 
+    
+}
+.logo{
+    display: flex;
+    align-items: center;
+    width: 10em;
+    height: 10em;
+    margin-top: 5em;
+   margin-left: 5em;
+}
+.btn{
+    margin-top: 1em;
+    text-align: center;
+    background: linear-gradient(rgb(202, 228, 246), rgb(105, 96, 163));
+    color: #080808;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.text{
+    margin-top: 7em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

@@ -8,15 +8,15 @@ import { AuthenticationService } from './services/authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email: string = '';
-  password: string = '';
+  correo: string = '';
+  contrasena: string = '';
   placeholder_email='Ingrese su correo';
   placeholder_password='Contraseña';
 
   constructor( private router:Router, private authService: AuthenticationService,) {}
 
-  onLogin(email: string, password: string): void {
-    this.authService.login(email, password).subscribe(
+  onLogin(correo: string, contrasena: string): void {
+    this.authService.login(correo, contrasena).subscribe(
       (response: { token: any; }) => {
         const token = response.token;
 
@@ -29,10 +29,18 @@ export class LoginComponent {
         // Redirige al usuario a la página de inicio o a la ubicación deseada.
         // Puedes utilizar el enrutador de Angular para hacer esto.
       },
-      (error: any) => {
-        // Maneja errores de autenticación aquí
+      (error) => {
+        if (error.status === 401) {
+          // Credenciales incorrectas
+          console.error('Credenciales incorrectas.');
+        } else if (error.status === 500) {
+          // Error del servidor
+          console.error('Error del servidor:', error.error.message);
+        } else {
+          // Otro tipo de error
+          console.error('Error desconocido:', error);
+        }
       }
     );
   }
 }
-

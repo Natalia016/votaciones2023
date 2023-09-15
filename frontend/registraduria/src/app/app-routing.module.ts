@@ -1,9 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { DescripcionComponent } from './descripcion/descripcion.component';
+
 const routes: Routes = [
 { path: '', redirectTo: '/login', pathMatch: 'full' },
-{ path: 'login',component:LoginComponent}, // Ruta inicial redirige al dashboard  
+{ path: 'login',component:LoginComponent},
+{path:'home',component :HomeComponent,
+children:[{path:'descripcion',component:DescripcionComponent}]
+},
+ 
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
