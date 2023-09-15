@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { DescripcionComponent } from './descripcion/descripcion.component';
 import { MisionComponent } from './mision/mision.component';
+import { VisionComponent } from './vision/vision.component';
 
 
 
@@ -20,7 +21,8 @@ import { MisionComponent } from './mision/mision.component';
     LoginComponent,
     HomeComponent,
     DescripcionComponent,
-    MisionComponent
+    MisionComponent,
+    VisionComponent
   ],
   imports: [
     BrowserModule,
