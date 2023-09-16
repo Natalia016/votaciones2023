@@ -1,0 +1,11 @@
+.container {
+    width: 1092px;
+    height: 669px;
+    left: 0px;
+    top: 0px;
+    position: fixed;
+    background: radial-gradient(39.08% 39.64% at 45.83% 14.74%, rgba(24.48, 56.03, 167.88, 0.58) 18%, rgba(127.74, 118.71, 231.63, 0) 100%);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    align-content: center;
+}

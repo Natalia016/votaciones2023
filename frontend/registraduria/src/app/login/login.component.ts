@@ -23,7 +23,7 @@ export class LoginComponent {
         // Almacena el token en el almacenamiento local o en una cookie para su posterior uso.
         localStorage.setItem('access_token', token);
         
-        this.router.navigate(['/home/dashboard']);
+        this.router.navigate(['/home-gestion/gestion']);
         
 
         // Redirige al usuario a la página de inicio o a la ubicación deseada.
@@ -44,3 +44,4 @@ export class LoginComponent {
     );
   }
 }
+
