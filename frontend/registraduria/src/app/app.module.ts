@@ -12,17 +12,37 @@ import { HomeComponent } from './home/home.component';
 import { DescripcionComponent } from './descripcion/descripcion.component';
 import { MisionComponent } from './mision/mision.component';
 import { VisionComponent } from './vision/vision.component';
+import { SidenavComponent } from './dashboard/components/sidenav/sidenav.component';
+import { BodyComponent } from './dashboard/components/body/body.component';
+import { HomeGestionComponent } from './dashboard/components/home-gestion/home-gestion.component';
+import { UsuariosComponent } from './dashboard/pages/usuarios/usuarios.component';
+import { PermisosComponent } from './dashboard/pages/permisos/permisos.component';
+import { RolesComponent } from './dashboard/pages/roles/roles.component';
+import { PartidosComponent } from './dashboard/pages/partidos/partidos.component';
+import { MesasComponent } from './dashboard/pages/mesas/mesas.component';
+import { GestionComponent } from './dashboard/pages/gestion/gestion.component';
+import { CandidatosComponent } from './dashboard/pages/candidatos/candidatos.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     HomeComponent,
     DescripcionComponent,
     MisionComponent,
-    VisionComponent
+    VisionComponent,
+    LoginComponent,
+    SidenavComponent,
+    BodyComponent,
+    HomeGestionComponent,
+    UsuariosComponent,
+    PermisosComponent,
+    RolesComponent,
+    PartidosComponent,
+    MesasComponent,
+    GestionComponent,
+    CandidatosComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+    <div class="logo-container">
+        <button class="logo" (click)="toggleCollapse()"><img src="https://www.registraduria.gov.co/IMG/png/logo_rnec-3.png" width="80px" height="70px" alt=""></button>
+        <div class="logo-text" *ngIf="collapsed">Gestion</div>
+        <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()" >
+            <i class="fal fa-times close-icon"></i>
+        </button>
+    </div>
+    <ul class="sidenav-nav" >
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a  class="sidenav-nav-link" [routerLink]="[data.routeLink]" 
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">
+               
+                <span class="sidenav-link-text text-center" >{{data.label}}</span>
+            </a>
+        </li>
+    </ul>
+</div>
