@@ -17,5 +17,5 @@ describe('PartidosComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  }); 
 });

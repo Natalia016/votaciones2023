@@ -234,6 +234,14 @@ def modificarResultado(id):
     json=response.json()
     return jsonify(json)
 
+@app.route("/usuarios", methods=['GET'])
+def getUsuarios():
+    headers={
+        "Content-Type": "application/json; charset=utf-8"}
+    url=dataConfig["url-backend-security"] + '/usuarios'
+    response=requests.get(url, headers=headers)
+    json=response.json()
+    return jsonify(json)
 
 @app.route("/resultados/<string:id>", methods=['DELETE'])
 def eliminarResultado(id):
@@ -243,6 +251,9 @@ def eliminarResultado(id):
     response=requests.delete(url, headers=headers)
     json=response.json()
     return jsonify(json)
+
+
+
 
 @app.route("/login", methods=["POST"])
 def create_token():
