@@ -5,12 +5,12 @@ import { Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PartidosService {
-  private apiUrl = 'http://127.0.0.1:7777/partidos'; // Reemplaza con la URL de tu API
+export class CandidatosService {
+  private apiUrl = 'http://127.0.0.1:7777/candidatos'; // Reemplaza con la URL de tu API
 
   constructor(private http: HttpClient) {}
 
-  getPartidos(): Observable<any[]> {
+  getCandidatos(): Observable<any[]> {
     const token = localStorage.getItem('access_token');
 
     if (token) {
