@@ -1,7 +1,7 @@
 export interface Candidatos{
     id:number;
     cedula:string;
-    numeroResolucion:string;
+    numero_resolucion:string;
     nombre:string;
     apellido:string;
 
