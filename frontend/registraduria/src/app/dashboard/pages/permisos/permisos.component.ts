@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Permisos } from './permisos';
+import { PermisosService } from '../../service/permisos.service';
 
 @Component({
   selector: 'app-permisos',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./permisos.component.css']
 })
 export class PermisosComponent {
+  Permisos: Permisos[] = [];
 
+  constructor(private permisosService: PermisosService) {}
+
+  ngOnInit(): void {
+    this.permisosService.getPermisos().subscribe(data  => {
+      this.Permisos= data;
+    });
+  }
 }
