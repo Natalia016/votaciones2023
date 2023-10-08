@@ -18,5 +18,4 @@ export class UsuariosComponent {
       this.Usuarios = data;
     });
   }
-
 }

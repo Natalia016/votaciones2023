@@ -13,6 +13,24 @@ import { UsuariosComponent } from './dashboard/pages/usuarios/usuarios.component
 import { RolesComponent } from './dashboard/pages/roles/roles.component';
 import { PermisosComponent } from './dashboard/pages/permisos/permisos.component';
 import { CandidatosComponent } from './dashboard/pages/candidatos/candidatos.component';
+import { ListMesasComponent } from './dashboard/pages/mesas/list-mesas/list-mesas.component';
+import { CreateMesasComponent } from './dashboard/pages/mesas/create-mesas/create-mesas.component';
+import { UpdateMesasComponent } from './dashboard/pages/mesas/update-mesas/update-mesas.component';
+import { ListPartidosComponent } from './dashboard/pages/partidos/list-partidos/list-partidos.component';
+import { CreatePartidosComponent } from './dashboard/pages/partidos/create-partidos/create-partidos.component';
+import { ListUsuariosComponent } from './dashboard/pages/usuarios/list-usuarios/list-usuarios.component';
+import { CreateUsuariosComponent } from './dashboard/pages/usuarios/create-usuarios/create-usuarios.component';
+import { UpdateUsuariosComponent } from './dashboard/pages/usuarios/update-usuarios/update-usuarios.component';
+import { UpdatePartidosComponent } from './dashboard/pages/partidos/update-partidos/update-partidos.component';
+import { ListRolesComponent } from './dashboard/pages/roles/list-roles/list-roles.component';
+import { CreateRolesComponent } from './dashboard/pages/roles/create-roles/create-roles.component';
+import { UpdateRolesComponent } from './dashboard/pages/roles/update-roles/update-roles.component';
+import { ListPermisosComponent } from './dashboard/pages/permisos/list-permisos/list-permisos.component';
+import { CreatePermisosComponent } from './dashboard/pages/permisos/create-permisos/create-permisos.component';
+import { UpdatePermisosComponent } from './dashboard/pages/permisos/update-permisos/update-permisos.component';
+import { ListCandidatoComponent } from './dashboard/pages/candidatos/list-candidato/list-candidato.component';
+import { CreateCandidatoComponent } from './dashboard/pages/candidatos/create-candidato/create-candidato.component';
+import { UpdateCandidatoComponent } from './dashboard/pages/candidatos/update-candidato/update-candidato.component';
 
 const routes: Routes = [
 { path: '', redirectTo: '/home/descripcion', pathMatch: 'full' },
@@ -23,15 +41,46 @@ children:[{path:'descripcion',component:DescripcionComponent},{path:'mision',com
 { path: 'home-gestion',component:HomeGestionComponent,
 children:[
   {path: 'gestion' ,component :GestionComponent},
-  {path: 'mesas' ,component :MesasComponent},
-  {path: 'partidos' ,component :PartidosComponent},
-  {path: 'usuarios' ,component :UsuariosComponent},
-  {path: 'roles' ,component :RolesComponent},
-  {path: 'permisos' ,component :PermisosComponent},
-  {path: 'candidatos' ,component :CandidatosComponent}
-]},
+  {path: 'mesas' ,component :MesasComponent,children:[
+    {path:'list',component:ListMesasComponent},
+    {path:'create',component:CreateMesasComponent},
+    {path:'update',component:UpdateMesasComponent},
+  ]},
+  {path: 'partidos' ,component :PartidosComponent,
+  children:[
+    {path:'list',component:ListPartidosComponent},
+    {path:'create',component:CreatePartidosComponent},
+    {path:'update',component:UpdatePartidosComponent},  
+  ]},
+  {path: 'usuarios' ,component :UsuariosComponent,
+  children:[
+    {path:'list',component:ListUsuariosComponent},
+    {path:'create',component:CreateUsuariosComponent},
+    {path:'update',component:UpdateUsuariosComponent},  
+  ]},
+  {path: 'roles' ,component :RolesComponent,
+  children:[
+    {path:'list',component:ListRolesComponent},
+    {path:'create',component:CreateRolesComponent},
+    {path:'update',component:UpdateRolesComponent},  
+  ]
+  },
+  {path: 'permisos' ,component :PermisosComponent,
+  children:[
+    {path:'list',component:ListPermisosComponent},
+    {path:'create',component:CreatePermisosComponent},
+    {path:'update',component:UpdatePermisosComponent},  
+  ]
+  },
+  {path: 'candidatos' ,component :CandidatosComponent,
+  children:[
+    {path:'list',component:ListCandidatoComponent},
+    {path:'create',component:CreateCandidatoComponent},
+    {path:'update',component:UpdateCandidatoComponent},  
+  ]
+  }
 
- 
+]},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
