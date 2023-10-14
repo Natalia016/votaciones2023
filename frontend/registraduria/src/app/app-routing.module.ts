@@ -41,6 +41,8 @@ children:[{path:'descripcion',component:DescripcionComponent},{path:'mision',com
 { path: 'home-gestion',component:HomeGestionComponent,
 children:[
   {path: 'gestion' ,component :GestionComponent},
+  {path:'list-usuarios',component:ListUsuariosComponent},
+  {path:'create-usuarios',component:CreateUsuariosComponent},
   {path: 'mesas' ,component :MesasComponent,children:[
     {path:'list',component:ListMesasComponent},
     {path:'create',component:CreateMesasComponent},
@@ -54,8 +56,8 @@ children:[
   ]},
   {path: 'usuarios' ,component :UsuariosComponent,
   children:[
-    {path:'list',component:ListUsuariosComponent},
-    {path:'create',component:CreateUsuariosComponent},
+    
+    
     {path:'update',component:UpdateUsuariosComponent},  
   ]},
   {path: 'roles' ,component :RolesComponent,
