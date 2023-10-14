@@ -1,1 +1,26 @@
-<p>create-usuarios works!</p>
+<div class="container">
+  <form (ngSubmit)="onCreateUser()">
+    
+    <div class="form-group">
+      <label for="seudonimo">Seudonimo</label>
+      <input type="text" class="form-control" id="seudonimo" [(ngModel)]="usuario.seudonimo" name="seudonimo">
+    </div>
+    <div class="form-group">
+      <label for="correo">Correo</label>
+      <input type="email" class="form-control" id="correo" [(ngModel)]="usuario.correo" name="correo">
+    </div>
+    <div class="form-group">
+      <label for="contrasena">Contraseña</label>
+      <input type="password" class="form-control" id="contrasena" [(ngModel)]="usuario.contrasena" name="contrasena">
+    </div>
+    <div class="form-group">
+      <label for="estado">Estado</label>
+      <select class="form-control" id="estado" [(ngModel)]="usuario.estado" name="estado">
+        <option [ngValue]="true">Activo</option>
+        <option [ngValue]="false">Inactivo</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+
+</div>

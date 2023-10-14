@@ -9,6 +9,7 @@ import { Usuarios } from './usuario';
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent {
+  mostrarTablaYBotones = true;
   Usuarios: Usuarios[] = [];
 
   constructor(private usuarioService: UsuarioService) {}

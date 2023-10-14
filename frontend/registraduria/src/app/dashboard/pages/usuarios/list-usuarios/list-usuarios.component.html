@@ -1,1 +1,24 @@
-<h1>list Usuarios</h1>
+
+<div class="container">
+  <h1 class="text-center ">Lista De Usuarios</h1>
+    <table class="table table-dark text-center"  *ngIf="mostrarTablaYBotones">
+      <thead>
+        <tr>          
+          <th scope="col">seudonimo</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of Usuarios; let i = index">
+          <td>{{ usuario.seudonimo }}</td>
+          <td>{{ usuario.correo }}</td>
+          <td>{{ usuario.estado ? 'Activo' : 'Inactivo' }}</td>
+          <td class="justify-content-center d-flex">
+            <a  routerLink="" class="btn btn-success mr-3 ">Editar</a>
+            <button  type="button" class="btn btn-danger" (click)="onDeleteUser(usuario._id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
