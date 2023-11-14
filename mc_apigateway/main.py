@@ -73,7 +73,7 @@ def modificarMesa(id):
 
 
 @app.route("/mesas/<string:id>", methods=['DELETE'])
-def eliminarMesa(id):
+def eliminarMesas(id):
     headers={
         "Content-Type": "application/json; charset=utf-8"}
     url=dataConfig["url-backend-registraduria"]+'/mesas/'+id
@@ -96,7 +96,7 @@ def getCandidatos():
 
 
 @app.route("/candidatos", methods=['POST'])
-def crearCandidato():
+def crearCandidatos():
     data=request.get_json()
     headers={
         "Content-Type": "application/json; charset=utf-8"}
@@ -256,8 +256,19 @@ def getUsuarios():
     json=response.json()
     return jsonify(json)
 
+
+@app.route("/usuarios/<string:id>", methods=['GET'])
+def getUsuario(id):
+    headers={
+        "Content-Type": "application/json; charset=utf-8"}
+    url=dataConfig["url-backend-security"]+'/usuarios/'+id
+    response=requests.get(url, headers=headers)
+    json=response.json()
+    return jsonify(json)
+
+
 @app.route("/usuarios", methods=['POST'])
-def crearUsuarios():
+def crearUsuario():
     data=request.get_json()
     headers={
         "Content-Type": "application/json; charset=utf-8"}
@@ -277,6 +288,17 @@ def modificarUsuarios(id):
     json=response.json()
     return jsonify(json)
 
+
+@app.route("/usuarios/<string:id>", methods=['DELETE'])
+def eliminarUsuarios(id):
+    headers={
+        "Content-Type": "application/json; charset=utf-8"}
+    url=dataConfig["url-backend-security"]+'/usuarios/'+id
+    response=requests.delete(url, headers=headers)
+    json=response.json()
+    return jsonify(json)
+
+
 @app.route("/permisos", methods=['GET'])
 def getPermisos():
     headers={
@@ -285,6 +307,7 @@ def getPermisos():
     response=requests.get(url, headers=headers)
     json=response.json()
     return jsonify(json)
+
 
 @app.route("/permisos", methods=['POST'])
 def crearPermisos():
@@ -295,6 +318,7 @@ def crearPermisos():
     response=requests.post(url, headers=headers, json=data)
     json=response.json()
     return jsonify(json)
+
 
 @app.route("/permisos/<string:id>", methods=['PUT'])
 def modificarPermisos(id):
@@ -307,6 +331,16 @@ def modificarPermisos(id):
     return jsonify(json)
 
 
+@app.route("/permisos/<string:id>", methods=['DELETE'])
+def eliminarPermisos(id):
+    headers={
+        "Content-Type": "application/json; charset=utf-8"}
+    url=dataConfig["url-backend-security"]+'/permisos/'+id
+    response=requests.delete(url, headers=headers)
+    json=response.json()
+    return jsonify(json)
+
+
 @app.route("/roles", methods=['GET'])
 def getRoles():
     headers={
@@ -315,6 +349,8 @@ def getRoles():
     response=requests.get(url, headers=headers)
     json=response.json()
     return jsonify(json)
+
+
 @app.route("/roles", methods=['POST'])
 def crearRoles():
     data=request.get_json()
@@ -324,6 +360,8 @@ def crearRoles():
     response=requests.post(url, headers=headers, json=data)
     json=response.json()
     return jsonify(json)
+
+
 @app.route("/roles/<string:id>", methods=['PUT'])
 def modificarRoles(id):
     data=request.get_json()

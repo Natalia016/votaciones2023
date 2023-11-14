@@ -1,10 +1,11 @@
 from Modelos.Resultado import Resultado
 from Modelos.Mesa import Mesa
 from Modelos.Candidato import Candidato
+from Modelos.Partido import Partido
 from Repositorios.RepositorioResultado import RepositorioResultado
 from Repositorios.RepositorioMesa import RepositorioMesa
 from Repositorios.RepositorioCandidato import RepositorioCandidato
-
+from Repositorios.RepositorioPartido import RepositorioPartido
 """
 Dentro de la clase se crean unos metodos, estos serán los encargados de manipular
 a los modelos, en estos se programarán las tareas básicas tales como crear, listar,
@@ -20,6 +21,7 @@ class ControladorResultado():
     def __init__(self):
         self.repositorioResultado = RepositorioResultado()
         self.repositorioCandidato = RepositorioCandidato()
+        self.repositorioPartido=RepositorioPartido()
         self.repositorioMesa = RepositorioMesa()
         print("Creando ControladorResultado")
 
@@ -27,12 +29,15 @@ class ControladorResultado():
         print("Listar todas los Resultados")
         return self.repositorioResultado.findAll()
 
-    def create(self, infoResultado, id_candidato, id_mesa):
+    def create(self, infoResultado,id_partido, id_candidato, id_mesa):
         nuevaResultado = Resultado(infoResultado)
+        elPartido=Partido(self.repositorioPartido.findById(id_partido))
         elCandidato = Candidato(self.repositorioCandidato.findById(id_candidato))
         laMesa = Mesa(self.repositorioMesa.findById(id_mesa))
+        nuevaResultado.partido=elPartido
         nuevaResultado.candidato = elCandidato
         nuevaResultado.mesa = laMesa
+
         return self.repositorioResultado.save(nuevaResultado)
 
     def show(self, id):
