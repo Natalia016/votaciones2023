@@ -1,26 +1,30 @@
     <div class="contenedor">
-        <div class="card-mb-3">
+        <div class="card">
             <div class="row no-gutters">
-                <div class="col-md-7">
                     <div class="card-body" >
                         <div class="row">
-                            <div class="login">
-                                <p class="titulo">Bienvenido al sistema electoral</p>
-                                <hr />
-                                <p>Iniciar sesión para continuar</p>
-                                <form (ngSubmit)="onLogin(correo, contrasena)">
-                                    <input type="text" [placeholder]="placeholder_email" name="correo" [(ngModel)]="correo" required />
+                            <div class="col-8">
+                                <div class="login">
+                                    <p class="titulo">Bienvenido al sistema electoral</p>
+                                    <hr />
+                                    <p>Iniciar sesión para continuar</p>
+                                    <form (ngSubmit)="onLogin(correo, contrasena)">
+                                        <input type="text" [placeholder]="placeholder_email" name="correo" [(ngModel)]="correo" required />
+    
+                                        <input type="password" [placeholder]="placeholder_password" name="contrasena" [(ngModel)]="contrasena" required />
+                                        <button type="submit">Iniciar Sesión</button>
+                                        
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-3 contenedor-logo">
+                                <img class="logo" src="assets\img\logo_r.png" width="100%" alt="Logo de la aplicación" />
 
-                                    <input type="password" [placeholder]="placeholder_password" name="contrasena" [(ngModel)]="contrasena" required />
-                                    <button type="submit">Iniciar Sesión</button>
-                                </form>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <img class="logo" src="assets\img\logo_r.png" alt="Logo de la aplicación" />
-                </div>
+                
             </div>
         </div>
     </div>

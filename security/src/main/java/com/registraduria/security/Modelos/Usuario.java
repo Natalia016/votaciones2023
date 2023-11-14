@@ -11,7 +11,7 @@ public class Usuario {
     private String seudonimo;
     private String correo;
     private String contrasena;
-
+    private Boolean estado;
 
     @DBRef
     private Rol rol;
@@ -19,10 +19,11 @@ public class Usuario {
     //private Rol rol;
 
 
-    public Usuario(String seudonimo, String correo, String contrasena) {
+    public Usuario(String seudonimo, String correo, String contrasena,Boolean estado) {
         this.seudonimo = seudonimo;
         this.correo = correo;
         this.contrasena = contrasena;
+        this.estado= estado;
     }
 
     public String get_id() {
@@ -52,6 +53,13 @@ public class Usuario {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
     }
 
 

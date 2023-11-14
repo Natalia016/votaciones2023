@@ -1,7 +1,7 @@
 
 <div class="container">
   <h1 class="text-center ">Lista De Usuarios</h1>
-    <table class="table table-dark text-center"  *ngIf="mostrarTablaYBotones">
+    <table class="table table-bordered  table-dark text-center"  *ngIf="mostrarTablaYBotones">
       <thead>
         <tr>          
           <th scope="col">seudonimo</th>
@@ -16,7 +16,10 @@
           <td>{{ usuario.correo }}</td>
           <td>{{ usuario.estado ? 'Activo' : 'Inactivo' }}</td>
           <td class="justify-content-center d-flex">
-            <a  routerLink="" class="btn btn-success mr-3 ">Editar</a>
+            <a  class="btn btn-success mr-3 " (click)="onEditUser(usuario._id)">Editar</a>
+          </td>
+          <td class="justify-content-center d-flex">
+           
             <button  type="button" class="btn btn-danger" (click)="onDeleteUser(usuario._id)">Eliminar</button>
           </td>
         </tr>

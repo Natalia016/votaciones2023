@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, of, throwError } from 'rxjs';
+import { Usuarios } from '../pages/usuarios/usuario';
+import { AnyError } from 'mongodb';
 
 @Injectable({
   providedIn: 'root',
@@ -53,5 +55,33 @@ export class UsuarioService {
       return throwError('Token no encontrado');
     }
   }
+  getuser(_id:any) :Observable<Usuarios>{
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      });
   
+      const listUrl = `${this.apiUrl}/${_id}`; // URL para eliminar un usuario por ID
+  
+      return this.http.get(listUrl, { headers });
+    } else {
+      return throwError('Token no encontrado');
+    }
+    
+  }
+  editar(_id:any) {
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      });
+  
+      const editUrl = `${this.apiUrl}/${_id}`; // URL para eliminar un usuario por ID
+  
+      return this.http.put(editUrl,{headers});
+    } else {
+      return throwError('Token no encontrado');
+    }
+}
 }

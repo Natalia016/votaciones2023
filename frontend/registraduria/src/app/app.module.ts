@@ -40,6 +40,7 @@ import { UpdateRolesComponent } from './dashboard/pages/roles/update-roles/updat
 import { ListUsuariosComponent } from './dashboard/pages/usuarios/list-usuarios/list-usuarios.component';
 import { UpdateUsuariosComponent } from './dashboard/pages/usuarios/update-usuarios/update-usuarios.component';
 import { CreateUsuariosComponent } from './dashboard/pages/usuarios/create-usuarios/create-usuarios.component';
+import { ResultadosComponent } from './dashboard/pages/resultados/resultados/resultados.component';
 
 
 
@@ -79,6 +80,7 @@ import { CreateUsuariosComponent } from './dashboard/pages/usuarios/create-usuar
     ListUsuariosComponent,
     UpdateUsuariosComponent,
     CreateUsuariosComponent,
+    ResultadosComponent,
   ],
   imports: [
     BrowserModule,

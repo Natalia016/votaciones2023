@@ -1,6 +1,7 @@
+import { ObjectId } from 'mongodb';
 export interface Mesas{
-    _id:number;
-    cantidad_inscritos:string;
-    numero:string;
+    _id?:ObjectId,
+    cantidad_inscritos?:string;
+    numero?:string;
 
 }

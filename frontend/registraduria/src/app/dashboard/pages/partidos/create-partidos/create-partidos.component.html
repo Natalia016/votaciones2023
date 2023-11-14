@@ -1,1 +1,13 @@
-<p>create-partidos works!</p>
+<div class="container">
+    <form (ngSubmit)="onCreateMesas()">
+        <div class="form-group">
+            <label for="lema">lema</label>
+            <input type="text" class="form-control" id="lema" [(ngModel)]="partidos.lema" name="lema">
+        </div>
+        <div class="form-group">
+            <label for="nombre">nombre</label>
+            <input type="text" class="form-control" id="nombre" [(ngModel)]="partidos.nombre" name="nombre">
+        </div>  
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>

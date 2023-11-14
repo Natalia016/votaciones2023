@@ -1,1 +1,14 @@
-<p>create-permisos works!</p>
+<div class="container">
+    <form (ngSubmit)="onCreatePermiso()">
+      <div class="form-group">
+        <label for="url">url</label>
+        <input type="url" class="form-control" id="correo" [(ngModel)]="permisos.url" name="url">
+      </div>
+      <div class="form-group">
+        <label for="metodo">metodo</label>
+        <input type="metodo" class="form-control" id="metodo" [(ngModel)]="permisos.metodo" name="metodo">
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  
+  </div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PartidosService } from '../../service/partidos.service';
-import { Partidos } from './partido';
+import { Partidos } from './partidos';
 
 
 @Component({

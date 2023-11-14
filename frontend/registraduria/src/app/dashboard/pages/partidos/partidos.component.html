@@ -1,19 +1,11 @@
-<div class="container">
-    <table class="table table-dark">
-      <thead>
-        <tr>
-          
-          <th scope="col">lema</th>
-          <th scope="col">nombre</th>
-          
-        </tr> 
-      </thead>
-      <tbody>
-        <tr *ngFor="let partido of Partidos; let i = index">
-          <td>{{ partido.lema }}</td>
-          <td>{{ partido.nombre }}</td>
-          
-        </tr>
-      </tbody>
-    </table>
+<app-list-partidos></app-list-partidos>
+
+<div class="container ml-4 justify-content-center ">
+  <div class="row ">
+    <div class="col-6">
+      <button class="btn btn-primary "  [routerLink]="['../create-mesas']" >Crear</button>
     </div>
+    
+    
+  </div>
+</div>

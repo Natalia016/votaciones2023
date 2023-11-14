@@ -1,8 +1,11 @@
+import { ObjectId } from "mongodb";
+
 export interface Candidatos{
-    id:number;
-    cedula:string;
-    numero_resolucion:string;
-    nombre:string;
-    apellido:string;
+    id?:ObjectId;
+    cedula?:string;
+    numero_resolucion?:string;
+    Nombre?:string;
+    Apellido?:string;
+    Imagen?:String;
 
 }

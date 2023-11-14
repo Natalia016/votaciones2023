@@ -1,20 +1,11 @@
-<div class="container">
-    <table class="table table-dark">
-      <thead>
-        <tr>
-          
-          <th scope="col">Url</th>
-          <th scope="col">Metodo</th>
-          
-        </tr> 
-      </thead>
-      <tbody>
-        <tr *ngFor="let permiso of Permisos; let i = index">
-          <td>{{ permiso.url}}</td>
+<app-list-permisos></app-list-permisos>
 
-          <td>{{ permiso.metodo }}</td>
-          
-        </tr>
-      </tbody>
-    </table>
+<div class="container ml-4 justify-content-center ">
+  <div class="row ">
+    <div class="col-6">
+      <button class="btn btn-primary "  [routerLink]="['../create-permisos']" >Crear</button>
     </div>
+    
+    
+  </div>
+</div>

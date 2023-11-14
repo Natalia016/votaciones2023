@@ -38,7 +38,14 @@ public class ControladorUsuario {
         return this.miRepositorioUsuario.save(infoUsuario);
 
     }
-
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable String id) {
+        Usuario usuarioActual = this.miRepositorioUsuario.findById(id).orElse(null);
+        if (usuarioActual != null) {
+            this.miRepositorioUsuario.delete(usuarioActual);
+        }
+    }
     //Listar por Id
     @GetMapping("{id}")
     public Usuario show(@PathVariable String id) {

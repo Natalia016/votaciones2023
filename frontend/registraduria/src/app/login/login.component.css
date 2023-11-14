@@ -9,10 +9,12 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 77vh;
     background-color: #c7cacc; 
 }
-
+.row{
+    margin: 0px;
+}
 
 .titulo {
     font-size: 250%;
@@ -26,16 +28,7 @@
     width: 100%;
     padding: 8.2% 4%;
 }
-.logo{
-    
-    display: flex;
-    align-items: center;
-    margin: auto;
-    width: 12em;
-    height: 16em;
-    filter: hue-rotate(60deg);
-    padding-top: 120px;
-}
+
 
 .login input {
     font-family: 'Overpass', sans-serif;
@@ -76,17 +69,26 @@
     background-color: #0f4c75;
     color:#bbe1fa;
 }
-.card-mb-3{
+.card{
     text-align: center;
     text-decoration-color: #1b262c;
-    width: 550px;
-    height: 400px;
+    width: 500px;
+    height: 64vh;
     border: 2px solid #1e1d1d; /* Agrega un borde sólido de 2px de ancho y color #1e1d1d */
-    box-sizing: border-box;
+    
+}
+.card-body{
+    padding: 0px;
+    margin: 0px;
 }
 
 
 .col-md-5{
     background: linear-gradient(rgb(202, 228, 246), rgb(105, 96, 163));
     margin-bottom: 44px;
+}
+.contenedor-logo{
+    background-color: #4c8eb9;
+    
+    
 }

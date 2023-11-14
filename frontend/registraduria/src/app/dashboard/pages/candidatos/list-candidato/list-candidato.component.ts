@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Candidatos } from '../candidato';
+import { CandidatosService } from 'src/app/dashboard/service/candidatos.service';
 
 @Component({
   selector: 'app-list-candidato',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-candidato.component.css']
 })
 export class ListCandidatoComponent {
+  Candidatos: Candidatos[] = [];
+
+  constructor(private candidatosService: CandidatosService) {}
+
+  ngOnInit(): void {
+    this.candidatosService.getCandidatos().subscribe(data  => {
+      this.Candidatos = data;
+    });
+  }
 
 }
+
+

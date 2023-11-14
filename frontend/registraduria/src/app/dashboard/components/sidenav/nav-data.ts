@@ -1,5 +1,10 @@
 export const navbarData = [
     {
+        routeLink:'/home-gestion/resultados',
+        icon:'bi bi-speedometer2',
+        label:'Dashboard',
+        },
+    {
     routeLink:'/home-gestion/usuarios',
     icon:'bi bi-speedometer2',
     label:'Gestion Usuario',

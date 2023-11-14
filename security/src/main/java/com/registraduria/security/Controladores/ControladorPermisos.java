@@ -9,16 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @CrossOrigin //permite hacer transacciones al servidor desde el mismo computador,
-@RestController //esta clase servirá como puerta de entrada al servidor para llevar acabo todas las tareas del CRUD
-/*Define la sub-ruta de acceso la cual se utilizará
-para activar los métodos programados en la presente clase desde el servidor.*/
+@RestController 
+
 @RequestMapping("/permisos")
 public class ControladorPermisos {
     @Autowired //permite la inyeccion de dependencias
     private RepositorioPermiso miRepositorioPermiso;
 
-    @GetMapping("")//enpoint para obtener la lista de todos los permisos
-    public List<Permiso> index() {
+    @GetMapping("") public List<Permiso> index() {
         return this.miRepositorioPermiso.findAll();
     }
 

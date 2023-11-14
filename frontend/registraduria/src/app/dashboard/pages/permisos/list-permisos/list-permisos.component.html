@@ -1,1 +1,35 @@
-<p>list-permisos works!</p>
+<div class="container">
+    <table class="table table-bordered text-bold table-dark text-center">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Url</th>
+                <th scope="col">Metodo</th>
+                <th scope="col">Acciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let permiso of Permisos; let i = index">
+                <td>{{permiso._id}}</td>
+                <td>{{ permiso.url}}</td>
+
+                <td>{{ permiso.metodo }}</td>
+
+                <td class="justify-content-center align-content-center text-center d-flex ">
+                    <div class="row">
+                        <a routerLink="../../permisos/{{permiso._id}}/update"
+                            class=" btn btn-success col-md-12 col-12 m-3 col-sm-6 ">Editar</a>
+                    </div>
+                </td>
+                <td class="justify-content-center text-center d-flex ">
+                    <div class="row">
+                        <button type="button" class="btn btn-danger col-md-12 m-3 col-12 m-3 col-sm-6 "
+                        (click)="onDeletePermisos(permiso._id)">Eliminar</button>
+                    </div>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,13 @@
+<div class="row">
+  <div *ngFor="let dato of resultados" class="col-md-2">
+    <div class="card">
+      <img [src]="dato.candidato.Imagen" class="card-img-top" alt="Imagen del Candidato">
+      <div class="card-body">
+        <h5 class="card-title">{{ dato.candidato.Nombre }} {{ dato.candidato.Apellido }}</h5>
+        <p class="card-text">Mesa: {{ dato.mesa.numero }}</p>
+        <p class="card-text">Partido: {{ dato.partido.nombre }}</p>
+        <p class="card-text">Total de votos: {{ dato.total_votos }}</p>
+      </div>
+    </div>
+  </div>
+</div>

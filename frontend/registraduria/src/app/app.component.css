@@ -1,0 +1,11 @@
+footer {
+    text-align: center;
+    background-color: #0c0c0c; /* Color de fondo opcional */
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: inline-block;
+    text-align: center;
+    color: aliceblue;
+}

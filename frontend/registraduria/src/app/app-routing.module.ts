@@ -31,56 +31,49 @@ import { UpdatePermisosComponent } from './dashboard/pages/permisos/update-permi
 import { ListCandidatoComponent } from './dashboard/pages/candidatos/list-candidato/list-candidato.component';
 import { CreateCandidatoComponent } from './dashboard/pages/candidatos/create-candidato/create-candidato.component';
 import { UpdateCandidatoComponent } from './dashboard/pages/candidatos/update-candidato/update-candidato.component';
+import { ResultadosComponent } from './dashboard/pages/resultados/resultados/resultados.component';
 
 const routes: Routes = [
 { path: '', redirectTo: '/home/descripcion', pathMatch: 'full' },
 { path: 'login',component:LoginComponent},
 {path:'home',component :HomeComponent,
-children:[{path:'descripcion',component:DescripcionComponent},{path:'mision',component:MisionComponent},{path:'vision',component:VisionComponent}]
+children:[{path:'descripcion',component:DescripcionComponent},
+{path:'mision',component:MisionComponent},{path:'vision',component:VisionComponent}]
 },
 { path: 'home-gestion',component:HomeGestionComponent,
 children:[
   {path: 'gestion' ,component :GestionComponent},
+  {path:'resultados',component:ResultadosComponent},
+  //rutas usuarios
+  {path: 'usuarios' ,component :UsuariosComponent},
   {path:'list-usuarios',component:ListUsuariosComponent},
   {path:'create-usuarios',component:CreateUsuariosComponent},
-  {path: 'mesas' ,component :MesasComponent,children:[
-    {path:'list',component:ListMesasComponent},
-    {path:'create',component:CreateMesasComponent},
-    {path:'update',component:UpdateMesasComponent},
-  ]},
-  {path: 'partidos' ,component :PartidosComponent,
-  children:[
-    {path:'list',component:ListPartidosComponent},
-    {path:'create',component:CreatePartidosComponent},
-    {path:'update',component:UpdatePartidosComponent},  
-  ]},
-  {path: 'usuarios' ,component :UsuariosComponent,
-  children:[
-    
-    
-    {path:'update',component:UpdateUsuariosComponent},  
-  ]},
-  {path: 'roles' ,component :RolesComponent,
-  children:[
-    {path:'list',component:ListRolesComponent},
-    {path:'create',component:CreateRolesComponent},
-    {path:'update',component:UpdateRolesComponent},  
-  ]
-  },
-  {path: 'permisos' ,component :PermisosComponent,
-  children:[
-    {path:'list',component:ListPermisosComponent},
-    {path:'create',component:CreatePermisosComponent},
-    {path:'update',component:UpdatePermisosComponent},  
-  ]
-  },
-  {path: 'candidatos' ,component :CandidatosComponent,
-  children:[
-    {path:'list',component:ListCandidatoComponent},
-    {path:'create',component:CreateCandidatoComponent},
-    {path:'update',component:UpdateCandidatoComponent},  
-  ]
-  }
+  {path:'update-usuarios/:id_usuarios',component:UpdateUsuariosComponent},
+  //rutas mesas
+  {path: 'mesas' ,component :MesasComponent},
+  {path:'list-mesas',component:ListMesasComponent},
+  {path:'create-mesas',component:CreateMesasComponent},
+  {path:'update-mesas/:id_mesas',component:UpdateMesasComponent},
+  //rutas partidos 
+  {path: 'partidos' ,component :PartidosComponent},
+  {path:'list-partidos',component:ListPartidosComponent},
+  {path:'create-partidos',component:CreatePartidosComponent},
+  {path:'update-partidos/:id_partidos',component:UpdatePartidosComponent},  
+  //ruta roles
+  {path: 'roles' ,component :RolesComponent},
+  {path:'list-roles',component:ListRolesComponent},
+  {path:'create-roles',component:CreateRolesComponent},
+  {path:'update-roles/:id_roles',component:UpdateRolesComponent}, 
+  //rutas permisos 
+  {path: 'permisos' ,component :PermisosComponent}, 
+  {path:'list-permisos',component:ListPermisosComponent},
+  {path:'create-permisos',component:CreatePermisosComponent},
+  {path:'update-permisos/:id_permisos',component:UpdatePermisosComponent},  
+  //rutas candidatos 
+  {path: 'candidatos' ,component :CandidatosComponent},
+  {path:'list-candidatos',component:ListCandidatoComponent},
+  {path:'create-candidatos',component:CreateCandidatoComponent},
+  {path:'update-candidatos/:id_candidatos',component:UpdateCandidatoComponent},  
 
 ]},
 ];

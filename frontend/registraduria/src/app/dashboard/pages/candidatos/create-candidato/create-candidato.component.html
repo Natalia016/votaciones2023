@@ -1,1 +1,28 @@
-<p>create-candidato works!</p>
+<!-- crear-candidato.component.html -->
+
+<div class="container">
+    <form (ngSubmit)="onCreateCandidato()">
+        <div class="form-group">
+            <label for="cedula">Cédula</label>
+            <input type="text" class="form-control" id="cedula" [(ngModel)]="candidato.cedula" name="cedula">
+        </div>
+        <div class="form-group">
+            <label for="numero_resolucion">Número de Resolución</label>
+            <input type="text" class="form-control" id="numero_resolucion" [(ngModel)]="candidato.numero_resolucion" name="numero_resolucion">
+        </div>
+        <div class="form-group">
+            <label for="Nombre">Nombre</label>
+            <input type="text" class="form-control" id="Nombre" [(ngModel)]="candidato.Nombre" name="Nombre">
+        </div>
+        <div class="form-group">
+            <label for="Apellido">Apellido</label>
+            <input type="text" class="form-control" id="Apellido" [(ngModel)]="candidato.Apellido" name="Apellido">
+        </div>
+        <div class="form-group">
+            <label for="imagen">URL de la Imagen</label>
+            <input type="text" class="form-control" id="imagen" [(ngModel)]="candidato.Imagen" name="imagen">
+        </div>
+      
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>

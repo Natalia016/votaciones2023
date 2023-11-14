@@ -1,5 +1,8 @@
+import { ObjectId } from "mongodb";
+
 export interface Permisos{
-    _id:number;
-    metodo:string;
+    _id?:ObjectId;
     url:string;
+    metodo:string;
+    
 }
